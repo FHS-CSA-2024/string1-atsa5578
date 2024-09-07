@@ -278,3 +278,26 @@ public class String1
     }
 
 }
+
+
+
+
+// what got printed out
+Hello Bob!
+HiByeByeHi
+<i>Yay</i>
+<<Yay>>
+lololo
+He
+Woo
+ell
+hiHellohi
+and
+HeHeHe
+lloHe
+true
+abcat
+loHi
+Hi
+llo
+
