@@ -282,7 +282,7 @@ public class String1
 
 
 
-// what got printed out
+/* what got printed out
 Hello Bob!
 HiByeByeHi
 <i>Yay</i>
@@ -300,4 +300,4 @@ abcat
 loHi
 Hi
 llo
-
+*/
