@@ -78,20 +78,30 @@ public class String1
      * makeOutWord("[[]]", "word") â†’ "[[word]]"
      */
     public String makeOutWord(String out, String word) {
-        return out.substring(0,2) + word + out.substring(2,4);
+        int length = out.length();
+        if(length==4)
+        {return out.substring(0,2) + word + out.substring(2,4);}
+        else{
+            return out.substring(0,length/2) + word + out.substring(length/2, length);
+        }
     }
 
     /*
      * Given a string, return a new string made of 3 copies of the last 2 chars of the original string. 
      * The string length will be at least 2.
-     * extraEnd("Hello") â†’ "lololo"
+     * extraEnd("Hello") â†’ "lololo"r
      * extraEnd("ab") â†’ "ababab"
      * extraEnd("Hi") â†’ "HiHiHi"
      */
     public String extraEnd(String str) {
-        return str.substring(3,5) + str.substring(3,5) + str.substring(3,5);
+        int length = str.length();
+        if(length == 2){
+        return str+str+str;
     }
-
+    else{
+        return str.substring(length-2, length) + str.substring(length-2, length)+ str.substring(length-2, length);
+    }
+    }
     /*
      * Given a string, return the string made of its first two chars, so the String "Hello" yields "He". 
      * If the string is shorter than length 2, return whatever there is, 
@@ -112,7 +122,8 @@ public class String1
      * firstHalf("abcdef") â†’ "abc"
      */
     public String firstHalf(String str2) {
-        return str2.substring(0,3);
+        int length = str2.length();
+        return str2.substring(0, length/2);
     }
 
     /*
@@ -123,7 +134,8 @@ public class String1
      * withoutEnd("coding") â†’ "odin"
      */
     public String withoutEnd(String str3) {
-        return str3.substring(1,4);
+        int length = str3.length();
+        return str3.substring(1,length-1);
     }
 
     /*
@@ -135,7 +147,17 @@ public class String1
      * comboString("aaa", "b") â†’ "baaab"
      */
     public String comboString(String a, String b) {
-        return a+b+a;
+        int lengthA = a.length();
+        int lengthB = b.length();
+        if(lengthA > lengthB){
+            return b+a+b;
+        }
+        else if(lengthA < lengthB){
+            return a+b+a;
+        }
+        else{
+            return "bruh";
+        }
     }
 
     /*
@@ -146,7 +168,23 @@ public class String1
      * middleThree("solving") â†’ "lvi"
      */
     public String middleThree(String str4) {
-        return str4.substring(1,4);
+        int length = str4.length();
+        int counter = 0;
+        if(length == 3){
+            counter = 0;
+        }
+        if(length == 5){
+            counter = 1;
+        }
+        if (length ==7){
+            counter = 2;
+        }
+        if(length%2 ==1){
+            return str4.substring(counter,length-counter);
+        }
+        else{
+            return str4;
+        }
     }
 
     /*
@@ -156,8 +194,14 @@ public class String1
      * extraFront("ab") â†’ "ababab"
      * extraFront("H") â†’ "HHH"
      */
-    public String extraFront(String str5) {
-        return str5.substring(0,2) + str5.substring(0,2) + str5.substring(0,2);
+    public String extraFront(String str) {
+        int length = str.length();
+        if(length == 1){
+            return str.substring(0) + str.substring(0) + str.substring(0);
+        }
+    else{
+        return str.substring(0,2) + str.substring(0,2) + str.substring(0,2);
+    }
     }
 
     /*
@@ -180,7 +224,7 @@ public class String1
      * hasBad("xxbadxx") â†’ false
      */
     public boolean hasBad(String str7) {
-        if (str7.substring(0,3).equals ("bad")){
+        if (str7.substring(0,3).equals ("bad") || str7.substring(1,4).equals ("bad")){
         return true;
         }
         else {
@@ -198,13 +242,15 @@ public class String1
      */
     
     public String conCat(String a, String b) {
-        int index1 = a.indexOf(3);
-        int index2 = b.indexOf(1);
-        
-        if (index1 == index2){
-            return "abcat";
+        int lengthA = a.length();
+        int lengthB = b.length();
+        if(lengthB == 0){
+            return a+b;
         }
-        else {
+        if(a.substring(lengthA-1,lengthA).equals(b.substring(0, 1))){
+            return a.substring(0,lengthA)+b.substring(1);
+        }
+        else{
             return a+b;
         }
     }
@@ -220,14 +266,17 @@ public class String1
      *minCat("java", "Hello") â†’ "javaello"
      */
     public String minCat(String a, String b) {
-        if (a.length() > b.length()){
-            return (a.substring(a.length()-2)) + (b.substring(b.length()-2));
+        int lengthA = a.length();
+        int lengthB = b.length();
+        if(lengthA > lengthB){
+            return a.substring(lengthA-lengthB, lengthA) + b;
         }
-        if (a.length() < b.length()){
-            return (b.substring(b.length()-2)) + (a.substring(a.length()-2));
+        else if(lengthB > lengthA){
+            return a+b.substring(lengthB-lengthA, lengthB);
         }
-        else
-            return "they shouldn't be equal bru";
+        else{
+            return a+b;
+        }
         }
 
     /*
